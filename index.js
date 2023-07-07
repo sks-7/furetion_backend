@@ -1,12 +1,13 @@
 // Import dependencies
 const express = require('express');
-const mongoose = require('mongoose');
+
 const cors = require('cors');
 const { connection } = require('./dbConnection/db');
 const { ticketController } = require('./controllers/TicketsController');
 const {
   reservationController,
 } = require('./controllers/ReservationController');
+const userController = require('./controllers/UserController');
 
 // Create Express app
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use('/api/tickets', ticketController);
 app.use('/api/reservations', reservationController);
+app.use('/user', userController);
 
 // staring server
 

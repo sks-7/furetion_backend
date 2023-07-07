@@ -24,17 +24,22 @@ ticketController.get('/:id', async (req, res) => {
 });
 
 // Search tickets by name
-ticketController.get('/search', async (req, res) => {
+ticketController.get('/search', (req, res) => {
+  
+  res.send("hello")
 
-  try {
-    const { name } = req.query;
-    const tickets = await Ticket.find({
-      name: { $regex: name, $options: 'i' },
-    });
-    res.json(tickets);
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
+  // console.log(req.query)
+  console.log("hello")
+
+  // try {
+  //   const { name } = req.query;
+  //   const tickets = await Ticket.findOne({name:name});
+  //   res.json(tickets);
+  // } catch (error) {
+
+  //   console.log(error)
+  //   res.status(500).json({ error: error });
+  // }
 });
 
 // Create a new ticket
